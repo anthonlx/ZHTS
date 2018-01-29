@@ -10,10 +10,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="x5-fullscreen" content="true">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <title>三维态势系统</title>
     <script src="./lib/include-lib.js" libpath="./lib/" include="jquery,font-awesome,animate,bootstrap,layer,haoutil,turf,cesium-mars"></script>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="./cesium-widget/theme/css/style.css" rel="stylesheet">
 </head>
 
 <body class="dark">
@@ -43,7 +42,10 @@
     </div>
     <div id="cesiumContainer" class="cesium-container"></div>
     <div class="LOGO">
-        <div class="logoImg"><img class="logo1 animated bounceInDown" src="img/logo.png"> <img class="logo2 animated lightSpeedIn" src="img/logoText.png"></div>
+        <div class="logoImg">
+            <img class="logo1 animated bounceInDown" src="./cesium-widget/theme/img/logo.png"> 
+            <img class="logo2 animated lightSpeedIn" src="./cesium-widget/theme/img/logoText.png">
+        </div>
         <div class="logoMenu">
             <div class="menu1 widget-btn" title="统计图表" data-widget="widgetsTS/qyCharts/widget.js"><span></span>
                 <div class="menuMask"></div>

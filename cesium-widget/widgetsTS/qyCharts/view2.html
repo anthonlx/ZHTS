@@ -1,2 +1,130 @@
-<!-- 2018-1-18 10:03:45 | 版权所有 合肥火星科技有限公司 http://www.marsgis.cn  【联系我们QQ：516584683】 -->
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"><title></title><script src="../../../lib/include-lib.js?time=20180118" libpath="../../../lib/" include="jquery,jquery.mCustomScrollbar,haoutil,bootstrap,echarts"></script><link href="../../css/widget-win.css" rel="stylesheet"></head><body style="padding:5px;text-align:center"><div class="btn-group" role="group" style="margin-bottom:10px"><button id="btn_zcz" type="button" class="btn btn-primary btn-sm active">总产值</button> <button id="btn_ly" type="button" class="btn btn-primary btn-sm">利润</button> <button id="btn_nse" type="button" class="btn btn-primary btn-sm">纳税额</button></div><div id="echartsView1" style="width:100%;height:250px"></div><div id="echartsView2" style="width:100%;height:300px"></div><script>function initWidgetView(e){thisWidget=e,thisWidget.config&&thisWidget.config.style&&$("body").addClass(thisWidget.config.style);var t=$(window).height()-30;$("#echartsView1").height(.4*t),$("#echartsView2").height(.6*t);var i=echarts.init(document.getElementById("echartsView1"),"dark"),n=echarts.init(document.getElementById("echartsView2"),"dark");$(window).resize(function(){i.resize(),n.resize()});var a=-1;$("#btn_zcz").click(function(){a=0,$(".active").removeClass("active"),$(this).addClass("active"),i.setOption(getOption1("ZCZ","总产值")),n.setOption(getOption2("ZCZ","总产值"))}),$("#btn_ly").click(function(){a=1,$(".active").removeClass("active"),$(this).addClass("active"),i.setOption(getOption1("LY","利润")),n.setOption(getOption2("LY","利润"))}),$("#btn_nse").click(function(){a=2,$(".active").removeClass("active"),$(this).addClass("active"),i.setOption(getOption1("NSE","纳税额")),n.setOption(getOption2("NSE","纳税额"))}),$("#btn_zcz").click(),timePlay.init(function(){a=(a+1)%3,0==a?$("#btn_zcz").click():1==a?$("#btn_ly").click():2==a&&$("#btn_nse").click()})}function getOption1(e,t){var i=thisWidget.getArrForTypeJJ(e),n={title:{text:"行业分类"+t+"统计图",left:"center"},tooltip:{trigger:"item",formatter:function(e){var t=e.marker+e.name+"&nbsp;"+e.seriesName+"<br/>";if(e.value<1e4)t+="<label style='color:"+e.color+";'>"+e.value+"</label>&nbsp;万元&nbsp;("+e.percent+"%)";else{var i=Math.round(e.value/1e3)/10;t+="<label style='color:"+e.color+";'>"+i+"</label>&nbsp;亿元&nbsp;("+e.percent+"%)"}return t}},toolbox:{show:!0,feature:{magicType:{show:!0,type:["pie","funnel"]}}},calculable:!0,series:[{name:t,type:"pie",radius:[20,85],center:["50%","50%"],minAngle:10,roseType:"area",data:i}]};return n}function getOption2(e,t){for(var i=thisWidget.getArrForSortQy(e),n=[],a=[],r=0;r<i.length;r++){var l=i[r];n.push(i.length-r+"."+l.name),a.push(l.value)}var s={title:{text:"企业"+t+"排名",left:"center"},tooltip:{trigger:"axis",axisPointer:{type:"shadow"},formatter:function(e){var t="";for(var i in e){var n=e[i];if(null!=n&&null!=n.value)if(t+=n.marker+n.seriesName+"&nbsp;",0!=n.value)if(n.value<1e4)t+="<label style='color:"+n.color+";'>"+n.value+"</label>&nbsp;万元";else{var a=Math.round(n.value/1e3)/10;t+="<label style='color:"+n.color+";'>"+a+"</label>&nbsp;亿元"}else t+="无数据<br />"}return t}},grid:{left:"3%",right:"3%",bottom:30,containLabel:!0},xAxis:{type:"value",axisLabel:{show:!1}},yAxis:{type:"category",data:n},dataZoom:[{type:"inside",start:Math.ceil(100*(i.length-10)/i.length),end:100,yAxisIndex:0},{type:"slider",yAxisIndex:0,width:10,height:"65%",right:0}],series:[{name:t,type:"bar",data:a}]};return s}var thisWidget,timePlay={interval:-1,fun:null,init:function(e){this.fun=e;var t=this;$("body").on({mouseover:function(e){t.stop()},mouseout:function(e){t.start()}})},start:function(e){var t=this;this.interval=setInterval(function(){t.fun()},8e3)},stop:function(){this.interval!=-1&&clearInterval(this.interval),this.interval=-1}}</script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <script src="../../../lib/include-lib.js?time=20180118" libpath="../../../lib/" include="jquery,jquery.mCustomScrollbar,haoutil,bootstrap,echarts"></script>
+    <link href="../../css/widget-win.css" rel="stylesheet">
+</head>
+
+<body style="padding:5px;text-align:center">
+    <div class="btn-group" role="group" style="margin-bottom:10px">
+        <button id="btn_zcz" type="button" class="btn btn-primary btn-sm active">总产值</button>
+        <button id="btn_ly" type="button" class="btn btn-primary btn-sm">利润</button>
+        <button id="btn_nse" type="button" class="btn btn-primary btn-sm">纳税额</button>
+    </div>
+    <div id="echartsView1" style="width:100%;height:250px"></div>
+    <div id="echartsView2" style="width:100%;height:300px"></div>
+    <script>
+    function initWidgetView(e) {
+        thisWidget = e,
+            thisWidget.config && thisWidget.config.style && $("body").addClass(thisWidget.config.style);
+        var t = $(window).height() - 30;
+        $("#echartsView1").height(.4 * t),
+            $("#echartsView2").height(.6 * t);
+        var i = echarts.init(document.getElementById("echartsView1"), "dark"),
+            n = echarts.init(document.getElementById("echartsView2"), "dark");
+        $(window).resize(function() { i.resize(), n.resize() });
+        var a = -1;
+        $("#btn_zcz").click(function() {
+                a = 0, $(".active").removeClass("active"),
+                    $(this).addClass("active"),
+                    i.setOption(getOption1("ZCZ", "总产值")),
+                    n.setOption(getOption2("ZCZ", "总产值"))
+            }),
+            $("#btn_ly").click(function() {
+                a = 1, $(".active").removeClass("active"),
+                    $(this).addClass("active"),
+                    i.setOption(getOption1("LY", "利润")), n.setOption(getOption2("LY", "利润"))
+            }),
+            $("#btn_nse").click(function() {
+                a = 2, $(".active").removeClass("active"),
+                    $(this).addClass("active"), i.setOption(getOption1("NSE", "纳税额")),
+                    n.setOption(getOption2("NSE", "纳税额"))
+            }),
+            $("#btn_zcz").click(),
+            timePlay.init(function() {
+                a = (a + 1) % 3, 0 == a ? $("#btn_zcz").click() : 1 == a ? $("#btn_ly").click() : 2 == a && $("#btn_nse").click()
+            })
+    }
+
+    function getOption1(e, t) {
+        var i = thisWidget.getArrForTypeJJ(e),
+            n = {
+                title: { text: "行业分类" + t + "统计图", left: "center" },
+                tooltip: {
+                    trigger: "item",
+                    formatter: function(e) {
+                        var t = e.marker + e.name + "&nbsp;" + e.seriesName + "<br/>";
+                        if (e.value < 1e4) t += "<label style='color:" + e.color + ";'>" + e.value + "</label>&nbsp;万元&nbsp;(" + e.percent + "%)";
+                        else {
+                            var i = Math.round(e.value / 1e3) / 10;
+                            t += "<label style='color:" + e.color + ";'>" + i + "</label>&nbsp;亿元&nbsp;(" + e.percent + "%)"
+                        }
+                        return t
+                    }
+                },
+                toolbox: { show: !0, feature: { magicType: { show: !0, type: ["pie", "funnel"] } } },
+                calculable: !0,
+                series: [{ name: t, type: "pie", radius: [20, 85], center: ["50%", "50%"], minAngle: 10, roseType: "area", data: i }]
+            };
+        return n
+    }
+
+    function getOption2(e, t) {
+        for (var i = thisWidget.getArrForSortQy(e), n = [], a = [], r = 0; r < i.length; r++) {
+            var l = i[r];
+            n.push(i.length - r + "." + l.name), a.push(l.value)
+        }
+        var s = {
+            title: { text: "企业" + t + "排名", left: "center" },
+            tooltip: {
+                trigger: "axis",
+                axisPointer: { type: "shadow" },
+                formatter: function(e) {
+                    var t = "";
+                    for (var i in e) {
+                        var n = e[i];
+                        if (null != n && null != n.value)
+                            if (t += n.marker + n.seriesName + "&nbsp;", 0 != n.value)
+                                if (n.value < 1e4) t += "<label style='color:" + n.color + ";'>" + n.value + "</label>&nbsp;万元";
+                                else {
+                                    var a = Math.round(n.value / 1e3) / 10;
+                                    t += "<label style='color:" + n.color + ";'>" + a + "</label>&nbsp;亿元"
+                                }
+                        else t += "无数据<br />"
+                    }
+                    return t
+                }
+            },
+            grid: { left: "3%", right: "3%", bottom: 30, containLabel: !0 },
+            xAxis: { type: "value", axisLabel: { show: !1 } },
+            yAxis: { type: "category", data: n },
+            dataZoom: [{ type: "inside", start: Math.ceil(100 * (i.length - 10) / i.length), end: 100, yAxisIndex: 0 }, { type: "slider", yAxisIndex: 0, width: 10, height: "65%", right: 0 }],
+            series: [{ name: t, type: "bar", data: a }]
+        };
+        return s
+    }
+    var thisWidget, timePlay = {
+        interval: -1,
+        fun: null,
+        init: function(e) {
+            this.fun = e;
+            var t = this;
+            $("body").on({
+                mouseover: function(e) { t.stop() },
+                mouseout: function(e) { t.start() }
+            })
+        },
+        start: function(e) {
+            var t = this;
+            this.interval = setInterval(function() { t.fun() }, 8e3)
+        },
+        stop: function() { this.interval != -1 && clearInterval(this.interval), this.interval = -1 }
+    }
+    </script>
+</body>
+
+</html>

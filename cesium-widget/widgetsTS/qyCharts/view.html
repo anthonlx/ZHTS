@@ -1,2 +1,153 @@
-<!-- 2018-1-18 12:16:24 | 版权所有 合肥火星科技有限公司 http://www.marsgis.cn  【联系我们QQ：516584683】 -->
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"><title></title><script src="../../../lib/include-lib.js?time=20180118" libpath="../../../lib/" include="jquery,jquery.mCustomScrollbar,haoutil,bootstrap,echarts"></script><link href="../../css/widget-win.css" rel="stylesheet"></head><body style="padding:5px;text-align:center"><div id="echartsView1" style="width:100%;height:40%"></div><div id="echartsView2" style="width:100%;height:60%"></div><script>function initWidgetView(e){thisWidget=e,thisWidget.config&&thisWidget.config.style&&$("body").addClass(thisWidget.config.style);var t=echarts.init(document.getElementById("echartsView1"),"dark");t.setOption(getOption1());var r=echarts.init(document.getElementById("echartsView2"),"dark");r.setOption(getOption2()),$(window).resize(function(){t.resize(),r.resize()})}function getOption1(){var e=thisWidget.getAllCount(),t=thisWidget.getArrForTypeCount(),r={tooltip:{trigger:"item",formatter:"{b}<br/>共{c}个&nbsp;({d}%)"},title:[{text:"企业总数",left:"49%",top:"40%",textAlign:"center",textBaseline:"middle",textStyle:{color:"#eeeeee",fontWeight:"normal",fontSize:17}},{text:e,left:"49%",top:"55%",textAlign:"center",textBaseline:"middle",textStyle:{color:"#ffffff",fontWeight:"normal",fontSize:30}}],series:[{hoverAnimation:!1,radius:["60%","80%"],name:"pie",type:"pie",selectedMode:"single",selectedOffset:16,clockwise:!0,startAngle:90,label:{normal:{show:!1}},labelLine:{normal:{show:!1}},itemStyle:{normal:{borderWidth:3,borderColor:"#ffffff"},emphasis:{borderWidth:0,shadowBlur:5,shadowOffsetX:0,shadowColor:"rgba(0, 0, 0, 0.2)"}},data:t}]};return r}function getOption2(e){for(var t=thisWidget.getArrForYearJJ(),r=[],i=[],a=[],o=[],n=[0],s=[0],l=[0],d=0;d<t.length;d++){var f=t[d];if(f.ZCZ=Number(f.ZCZ),f.LY=Number(f.LY),f.NSE=Number(f.NSE),r.push(f.NF+"年"),i.push(f.ZCZ),a.push(f.LY),o.push(f.NSE),d>0){var h=t[d-1];0!=f.ZCZ?n.push(Math.round(100*(f.ZCZ-h.ZCZ)/h.ZCZ)):n.push(0),0!=f.LY?s.push(Math.round(100*(f.LY-h.LY)/h.LY)):s.push(0),0!=f.NSE?l.push(Math.round(100*(f.NSE-h.NSE)/h.NSE)):l.push(0)}}var u={title:{text:"全区企业年度统计",left:"center"},tooltip:{trigger:"axis",position:function(e,t,r,i,a){return["10%","10%"]},formatter:function(e){var t="";for(var r in e){var i=e[r];if(null!=i&&null!=i.value)if(t+=i.marker+i.seriesName+"&nbsp;",0!=i.value){var a=i.value;if(t+="<label style='color:"+i.color+";'>"+a+"</label>&nbsp;亿元",i.dataIndex>0){var o=100;"总产值"==i.seriesName?o=n[i.dataIndex]:"利润"==i.seriesName?o=s[i.dataIndex]:"纳税额"==i.seriesName&&(o=l[i.dataIndex]),t+="，&nbsp;同比增长<label style='color:"+i.color+";'>"+o+"</label>%<br />"}else t+="<br />"}else t+="无数据<br />"}return t}},toolbox:{top:10,left:10,feature:{magicType:{show:!0,type:["line","bar"]}}},legend:{top:30,right:0,orient:"vertical",data:["总产值","利润","纳税额"]},xAxis:{data:r,axisLine:{show:!1}},yAxis:{axisLabel:{rotate:60}},series:[{name:"总产值",type:"bar",data:i},{name:"利润",type:"bar",data:a},{name:"纳税额",type:"bar",data:o}]};return u}var thisWidget</script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <script src="../../../lib/include-lib.js?time=20180118" libpath="../../../lib/" include="jquery,jquery.mCustomScrollbar,haoutil,bootstrap,echarts"></script>
+    <link href="../../css/widget-win.css" rel="stylesheet">
+</head>
+
+<body style="padding:5px;text-align:center">
+    <div id="echartsView1" style="width:100%;height:40%"></div>
+    <div id="echartsView2" style="width:100%;height:60%"></div>
+    <script>
+    function initWidgetView(e) {
+        thisWidget = e,
+            thisWidget.config && thisWidget.config.style && $("body").addClass(thisWidget.config.style);
+        var t = echarts.init(document.getElementById("echartsView1"), "dark");
+        t.setOption(getOption1());
+        var r = echarts.init(document.getElementById("echartsView2"), "dark");
+        r.setOption(getOption2()), $(window).resize(function() { t.resize(), r.resize() })
+    }
+
+    function getOption1() {
+        var e = thisWidget.getAllCount(),
+            t = thisWidget.getArrForTypeCount(),
+            r = {
+                tooltip: {
+                    trigger: "item",
+                    formatter: "{b}<br/>共{c}个&nbsp;({d}%)"
+                },
+                title: [{
+                        text: "企业总数",
+                        left: "49%",
+                        top: "40%",
+                        textAlign: "center",
+                        textBaseline: "middle",
+                        textStyle: {
+                            color: "#eeeeee",
+                            fontWeight: "normal",
+                            fontSize: 17
+                        }
+                    },
+                    {
+                        text: e,
+                        left: "49%",
+                        top: "55%",
+                        textAlign: "center",
+                        textBaseline: "middle",
+                        textStyle: { color: "#ffffff", fontWeight: "normal", fontSize: 30 }
+                    }
+                ],
+                series: [{
+                    hoverAnimation: !1,
+                    radius: ["60%", "80%"],
+                    name: "pie",
+                    type: "pie",
+                    selectedMode: "single",
+                    selectedOffset: 16,
+                    clockwise: !0,
+                    startAngle: 90,
+                    label: { normal: { show: !1 } },
+                    labelLine: { normal: { show: !1 } },
+                    itemStyle: {
+                        normal: { borderWidth: 3, borderColor: "#ffffff" },
+                        emphasis: {
+                            borderWidth: 0,
+                            shadowBlur: 5,
+                            shadowOffsetX: 0,
+                            shadowColor: "rgba(0, 0, 0, 0.2)"
+                        }
+                    },
+                    data: t
+                }]
+            };
+        return r
+    }
+
+    function getOption2(e) {
+        for (var t = thisWidget.getArrForYearJJ(),
+                r = [], i = [], a = [], o = [], n = [0], s = [0], l = [0], d = 0; d < t.length; d++) {
+            var f = t[d];
+            if (f.ZCZ = Number(f.ZCZ), f.LY = Number(f.LY), f.NSE = Number(f.NSE), r.push(f.NF + "年"),
+                i.push(f.ZCZ),
+                a.push(f.LY),
+                o.push(f.NSE), d > 0) {
+                var h = t[d - 1];
+                0 != f.ZCZ ? n.push(Math.round(100 * (f.ZCZ - h.ZCZ) / h.ZCZ)) : n.push(0), 0 != f.LY ? s.push(Math.round(100 * (f.LY - h.LY) / h.LY)) : s.push(0), 0 != f.NSE ? l.push(Math.round(100 * (f.NSE - h.NSE) / h.NSE)) : l.push(0)
+            }
+        }
+        var u = {
+            title: { text: "全区企业年度统计", left: "center" },
+            tooltip: {
+                trigger: "axis",
+                position: function(e, t, r, i, a) { return ["10%", "10%"] },
+                formatter: function(e) {
+                    var t = "";
+                    for (var r in e) {
+                        var i = e[r];
+                        if (null != i && null != i.value)
+                            if (t += i.marker + i.seriesName + "&nbsp;", 0 != i.value) {
+                                var a = i.value;
+                                if (t += "<label style='color:" + i.color + ";'>" + a + "</label>&nbsp;亿元", i.dataIndex > 0) {
+                                    var o = 100;
+                                    "总产值" == i.seriesName ? o = n[i.dataIndex] : "利润" == i.seriesName ? o = s[i.dataIndex] : "纳税额" == i.seriesName && (o = l[i.dataIndex]),
+                                        t += "，&nbsp;同比增长<label style='color:" + i.color + ";'>" + o + "</label>%<br />"
+                                } else t += "<br />"
+                            }
+                        else t += "无数据<br />"
+                    }
+                    return t
+                }
+            },
+            toolbox: {
+                top: 10,
+                left: 10,
+                feature: {
+                    magicType: {
+                        show: !0,
+                        type: ["line",
+                            "bar"
+                        ]
+                    }
+                }
+            },
+            legend: {
+                top: 30,
+                right: 0,
+                orient: "vertical",
+                data: ["总产值", "利润", "纳税额"]
+            },
+            xAxis: {
+                data: r,
+                axisLine: { show: !1 }
+            },
+            yAxis: { axisLabel: { rotate: 60 } },
+            series: [{
+                    name: "总产值",
+                    type: "bar",
+                    data: i
+                },
+                { name: "利润", type: "bar", data: a },
+                { name: "纳税额", type: "bar", data: o }
+            ]
+        };
+        return u
+    }
+    var thisWidget
+    </script>
+</body>
+
+</html>

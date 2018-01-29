@@ -1,2 +1,59 @@
-<!-- 2018-1-18 10:03:45 | 版权所有 合肥火星科技有限公司 http://www.marsgis.cn  【联系我们QQ：516584683】 -->
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"><title></title><script src="../../../lib/include-lib.js?time=20180118" libpath="../../../lib/" include="jquery,jquery.mCustomScrollbar,haoutil"></script><link href="../../css/widget-win.css" rel="stylesheet"><link href="view.css" rel="stylesheet"></head><body><div class="yjzy"><div class="search-wrapper"><div class="input-holder"><input id="txtKey" type="text" class="search-input" placeholder="请输入关键词"> <button class="search-icon" onclick="searchToggle(this,event)"><span></span></button></div><span class="close" onclick="searchToggle(this,event)"></span></div><div id="qyList" class="yjzyCon content"></div></div><script>function initWidgetView(i){thisWidget=i,thisWidget.config&&thisWidget.config.style&&$("body").addClass(thisWidget.config.style),$(window).resize(refHeight),refHeight(),$("#txtKey").bind("input propertychange",function(){var i=$.trim($("#txtKey").val()),t=thisWidget.queryData({key:i});bindData(t)}),$("#qyList").mCustomScrollbar({theme:"minimal"});var t=thisWidget.getData();bindData(t)}function bindData(i){for(var t="",a=0;a<i.length;a++){var e=i[a];t+=' <div class="col-small col-big activate">                <div class="container1" onclick="thisWidget.centerAt(\''+e.ID+'\')">                    <div class="container2">                        <span class="numSpan">'+(a+1)+'</span>                        <div class="line1">'+e.JC+'<span class="typeLabel" style="right:40px;">'+e.LX+'</span><span class="typeLabel"  ><a href="javascript:thisWidget.showXQ(\''+e.ID+'\')">详情</a></span></div>                        <div class="line2">名称：'+e.NAME+'</div>                        <div class="line3">'+(e.DZ?"地址:"+e.DZ:"")+"</div>                    </div>                </div>            </div>"}$("#mCSB_1_container").html(t)}function refHeight(){var i=$(window).height()-50;$("#qyList").height(i)}function searchToggle(i,t){var a=$(i).closest(".search-wrapper");a.hasClass("active")?a.hasClass("active")&&0==$(i).closest(".input-holder").length&&(a.removeClass("active"),a.find(".search-input").val("")):(a.addClass("active"),t.preventDefault())}var thisWidget</script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <script src="../../../lib/include-lib.js?time=20180118" libpath="../../../lib/" include="jquery,jquery.mCustomScrollbar,haoutil"></script>
+    <link href="../../css/widget-win.css" rel="stylesheet">
+    <link href="view.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="yjzy">
+        <div class="search-wrapper">
+            <div class="input-holder">
+                <input id="txtKey" type="text" class="search-input" placeholder="请输入关键词">
+                <button class="search-icon" onclick="searchToggle(this,event)"><span></span></button>
+            </div><span class="close" onclick="searchToggle(this,event)"></span></div>
+        <div id="qyList" class="yjzyCon content"></div>
+    </div>
+    <script>
+    function initWidgetView(i) {
+        thisWidget = i, thisWidget.config && thisWidget.config.style && $("body").addClass(thisWidget.config.style),
+            $(window).resize(refHeight), refHeight(),
+            $("#txtKey").bind("input propertychange",
+                function() {
+                    var i = $.trim($("#txtKey").val()),
+                        t = thisWidget.queryData({ key: i });
+                    bindData(t)
+                }), $("#qyList").mCustomScrollbar({ theme: "minimal" });
+        var t = thisWidget.getData();
+        bindData(t)
+    }
+
+    function bindData(i) {
+        for (var t = "", a = 0; a < i.length; a++) {
+            var e = i[a];
+            t += ' <div class="col-small col-big activate"><div class="container1" onclick="thisWidget.centerAt(\'' + e.ID + '\')"><div class="container2"><span class="numSpan">' + (a + 1) + '</span><div class="line1">' + e.JC + '<span class="typeLabel" style="right:40px;">' + e.LX + '</span><span class="typeLabel"  ><a href="javascript:thisWidget.showXQ(\'' + e.ID + '\')">详情</a></span></div><div class="line2">名称：' + e.NAME + '</div><div class="line3">' + (e.DZ ? "地址:" + e.DZ : "") + "</div></div></div></div>"
+        }
+        $("#mCSB_1_container").html(t)
+    }
+
+    function refHeight() {
+        var i = $(window).height() - 50;
+        $("#qyList").height(i)
+    }
+
+    function searchToggle(i, t) {
+        var a = $(i).closest(".search-wrapper");
+        a.hasClass("active") ? a.hasClass("active") && 0 == $(i).closest(".input-holder").length && (a.removeClass("active"),
+            a.find(".search-input").val("")) : (a.addClass("active"),
+            t.preventDefault())
+    }
+    var thisWidget
+    </script>
+</body>
+
+</html>

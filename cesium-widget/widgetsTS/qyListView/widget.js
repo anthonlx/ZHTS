@@ -1,2 +1,23 @@
-/* 2018-1-3 07:56:08 | 版权所有 合肥火星科技有限公司 http://www.marsgis.cn  【联系我们QQ：516584683】 */
-mars3d.widget.bindClass(mars3d.BaseWidget.extend({options:{view:{type:"window",url:"view.html",windowOptions:{width:350,height:300}}},create:function(){},viewWindow:null,winCreateOK:function(t,i){this.viewWindow=i},activate:function(){},disable:function(){},getData:function(){return widgetPointQy.arrdata},centerAt:function(t){widgetPointQy.centerAt(t)},showXQ:function(t){widgetPointQy.showXQ(t)},queryData:function(t){return widgetPointQy.queryData(t)}}));
+mars3d.widget.bindClass(mars3d.BaseWidget.extend({
+    options: {
+        view: {
+            type: "window",
+            url: "view.html",
+            windowOptions: {
+                width: 350,
+                height: 300
+            }
+        }
+    },
+    create: function() {},
+    viewWindow: null,
+    winCreateOK: function(t, i) { this.viewWindow = i },
+    activate: function() {},
+    disable: function() {},
+    getData: function() {
+        return widgetPointQy.arrdata
+    },
+    centerAt: function(t) { widgetPointQy.centerAt(t) },
+    showXQ: function(t) { widgetPointQy.showXQ(t) },
+    queryData: function(t) { return widgetPointQy.queryData(t) }
+}));

@@ -1,18 +1,53 @@
 ﻿{
     "serverURL": "http://www.marsgis.cn/mapcache/",
 
-    "map3d": {
-        "center": { "y": 31.787488, "x": 117.222228, "z": 2249.1, "heading": 361, "pitch": -28.6, "roll": 361 },
+    "map3d":
+    {
+        "center":
+        {
+            "y": 31.787488,
+            "x": 117.222228,
+            "z": 2249.1,
+            "heading": 361,
+            "pitch": -28.6,
+            "roll": 361
+        },
         "minzoom": 20,
         "maxzoom": 30000000,
-        "style": { "atmosphere": true, "lighting": false, "fog": false, "testTerrain": false },
+        "style":
+        {
+            "atmosphere": true,
+            "lighting": false,
+            "fog": false,
+            "testTerrain": false
+        },
         "controls": [
-            { "type": "geocoder", "citycode": "" },
-            { "type": "location", "coordinate": "wgs", "style": { "left": "2px", "bottom": "2px" } },
-            { "type": "mousezoom" },
-            { "type": "navigation", "style": { "top": "50px", "right": "-5px" } }
-        ],
-        "terrain": {
+        {
+            "type": "geocoder",
+            "citycode": ""
+        },
+        {
+            "type": "location",
+            "coordinate": "wgs",
+            "style":
+            {
+                "left": "2px",
+                "bottom": "2px"
+            }
+        },
+        {
+            "type": "mousezoom"
+        },
+        {
+            "type": "navigation",
+            "style":
+            {
+                "top": "50px",
+                "right": "-5px"
+            }
+        }],
+        "terrain":
+        {
             "url": "http://assets.agi.com/stk-terrain/world",
             "url-bak": "http://www.supermapol.com/iserver/services/3D-stk_terrain/rest/realspace/datas/info/data/path",
             "visible": true
@@ -29,9 +64,18 @@
                 "type": "group",
                 "icon": "img/basemaps/tdt_img.png",
                 "layers": [
-                    { "name": "底图", "type": "www_tdt", "layer": "img_d", "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?" },
-                    { "name": "注记", "type": "www_tdt", "layer": "img_z", "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?" }
-                ]
+                {
+                    "name": "底图",
+                    "type": "www_tdt",
+                    "layer": "img_d",
+                    "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?"
+                },
+                {
+                    "name": "注记",
+                    "type": "www_tdt",
+                    "layer": "img_z",
+                    "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?"
+                }]
             },
             {
                 "pid": 10,
@@ -39,9 +83,17 @@
                 "type": "group",
                 "icon": "img/basemaps/bingAerial.png",
                 "layers": [
-                    { "name": "底图", "type": "www_bing", "layer": "Aerial" },
-                    { "name": "注记", "type": "www_tdt", "layer": "img_z", "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?" }
-                ]
+                {
+                    "name": "底图",
+                    "type": "www_bing",
+                    "layer": "Aerial"
+                },
+                {
+                    "name": "注记",
+                    "type": "www_tdt",
+                    "layer": "img_z",
+                    "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?"
+                }]
             },
             {
                 "pid": 10,
@@ -49,9 +101,17 @@
                 "type": "group",
                 "icon": "img/basemaps/esriWorldImagery.png",
                 "layers": [
-                    { "name": "底图", "type": "arcgis", "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" },
-                    { "name": "注记", "type": "www_tdt", "layer": "img_z", "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?" }
-                ],
+                {
+                    "name": "底图",
+                    "type": "arcgis",
+                    "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
+                },
+                {
+                    "name": "注记",
+                    "type": "www_tdt",
+                    "layer": "img_z",
+                    "proxy": "http://www.marsgis.cn/proxy/proxy.jsp?"
+                }],
                 "visible": true
             },
 
@@ -62,9 +122,16 @@
                 "crs": "gcj",
                 "icon": "img/basemaps/google_img.png",
                 "layers": [
-                    { "name": "底图", "type": "www_google", "layer": "img_d" },
-                    { "name": "注记", "type": "www_google", "layer": "img_z" }
-                ]
+                {
+                    "name": "底图",
+                    "type": "www_google",
+                    "layer": "img_d"
+                },
+                {
+                    "name": "注记",
+                    "type": "www_google",
+                    "layer": "img_z"
+                }]
             },
             {
                 "pid": 10,
@@ -73,9 +140,16 @@
                 "icon": "img/basemaps/gaode_img.png",
                 "crs": "gcj",
                 "layers": [
-                    { "name": "底图", "type": "www_gaode", "layer": "img_d" },
-                    { "name": "注记", "type": "www_gaode", "layer": "img_z" }
-                ]
+                {
+                    "name": "底图",
+                    "type": "www_gaode",
+                    "layer": "img_d"
+                },
+                {
+                    "name": "注记",
+                    "type": "www_gaode",
+                    "layer": "img_z"
+                }]
             }
         ],
         "operationallayers": [
@@ -90,11 +164,20 @@
                 "type": "wms",
                 "url": "http://gisserver.tianditu.com/TDTService/region/wms",
                 "layers": "030100",
-                "parameters": {
+                "parameters":
+                {
                     "transparent": "true",
                     "format": "image/png"
                 },
-                "center": { "y": 17.571877, "x": 114.258325, "z": 6591684.1, "heading": 352.3, "pitch": -74.3, "roll": 0.1 },
+                "center":
+                {
+                    "y": 17.571877,
+                    "x": 114.258325,
+                    "z": 6591684.1,
+                    "heading": 352.3,
+                    "pitch": -74.3,
+                    "roll": 0.1
+                },
                 "visible": false
             },
             {
@@ -120,16 +203,44 @@
                 "type": "gltf",
                 "name": "电线塔",
                 "url": "data/models/dxt.gltf",
-                "position": { "x": 117.213269, "y": 31.829509, "z": 35, "heading": 90 },
-                "center": { "y": 31.828562, "x": 117.217529, "z": 143.7, "heading": 287.2, "pitch": -10.8, "roll": 359.8 }
-            }, 
+                "position":
+                {
+                    "x": 117.213269,
+                    "y": 31.829509,
+                    "z": 35,
+                    "heading": 90
+                },
+                "center":
+                {
+                    "y": 31.828562,
+                    "x": 117.217529,
+                    "z": 143.7,
+                    "heading": 287.2,
+                    "pitch": -10.8,
+                    "roll": 359.8
+                }
+            },
             {
                 "pid": 2010,
                 "type": "gltf",
                 "name": "圆拱桥",
                 "url": "$serverURL$/cesium/gltf/qiaoliang2.gltf",
-                "position": { "x": 117.226331, "y": 31.828128, "z": 37, "heading": 70 },
-                "center": { "y": 31.824839, "x": 117.227175, "z": 180.7, "heading": 343.8, "pitch": -17.2, "roll": 1 }
+                "position":
+                {
+                    "x": 117.226331,
+                    "y": 31.828128,
+                    "z": 37,
+                    "heading": 70
+                },
+                "center":
+                {
+                    "y": 31.824839,
+                    "x": 117.227175,
+                    "z": 180.7,
+                    "heading": 343.8,
+                    "pitch": -17.2,
+                    "roll": 1
+                }
             },
 
             {
@@ -143,8 +254,19 @@
                 "type": "3dtiles",
                 "name": "深圳粮库",
                 "url": "$serverURL$/cesium/3dtiles/shenliangTiles/tileset.json",
-                "offset": { "z": 70 },
-                "center": { "y": 22.661802, "x": 114.12836, "z": 206.8, "heading": 230.1, "pitch": -28.5, "roll": 359.9 }
+                "offset":
+                {
+                    "z": 70
+                },
+                "center":
+                {
+                    "y": 22.661802,
+                    "x": 114.12836,
+                    "z": 206.8,
+                    "heading": 230.1,
+                    "pitch": -28.5,
+                    "roll": 359.9
+                }
             },
 
             {
@@ -159,36 +281,77 @@
                 "type": "3dtiles",
                 "name": "纽约",
                 "url": "$serverURL$/cesium/3dtiles/NewYork/tileset.json",
-                "center": { "y": 40.780218, "x": -73.993943, "z": 935, "heading": 153.2, "pitch": -24.1, "roll": 0.1 }
+                "center":
+                {
+                    "y": 40.780218,
+                    "x": -73.993943,
+                    "z": 935,
+                    "heading": 153.2,
+                    "pitch": -24.1,
+                    "roll": 0.1
+                }
             },
             {
                 "pid": 2030,
                 "type": "3dtiles",
                 "name": "保利小区",
                 "url": "$serverURL$/cesium/3dtiles/baoli/Tileset.json",
-                "offset": { "z": -75 },
-                "center": { "y": 22.653558, "x": 113.058013, "z": 496.3, "heading": 148.9, "pitch": -32.4, "roll": 0.1 }
+                "offset":
+                {
+                    "z": -75
+                },
+                "center":
+                {
+                    "y": 22.653558,
+                    "x": 113.058013,
+                    "z": 496.3,
+                    "heading": 148.9,
+                    "pitch": -32.4,
+                    "roll": 0.1
+                }
             },
-     
+
             {
                 "pid": 2030,
                 "type": "3dtiles",
                 "name": "厂房",
                 "url": "$serverURL$/cesium/3dtiles/changfang/Tileset.json",
-                "offset": { "z": -12 },
-                "center": { "y": 40.409934, "x": 115.46201, "z": 640.7, "heading": 260.6, "pitch": -24.8, "roll": 359.8 },
+                "offset":
+                {
+                    "z": -12
+                },
+                "center":
+                {
+                    "y": 40.409934,
+                    "x": 115.46201,
+                    "z": 640.7,
+                    "heading": 260.6,
+                    "pitch": -24.8,
+                    "roll": 359.8
+                },
                 "visible": false,
                 "flyTo": false
             },
- 
+
             {
                 "pid": 2030,
                 "type": "3dtiles",
                 "name": "龙华广场",
                 "url": "http://skyinfor.cn/modeldata/longhua_models/longhua_pangu.json",
                 "maximumScreenSpaceError": 2,
-                "offset": { "z": -5 },
-                "center": { "y": 22.653581, "x": 114.036923, "z": 196, "heading": 331.1, "pitch": -13.9, "roll": 359.9 },
+                "offset":
+                {
+                    "z": -5
+                },
+                "center":
+                {
+                    "y": 22.653581,
+                    "x": 114.036923,
+                    "z": 196,
+                    "heading": 331.1,
+                    "pitch": -13.9,
+                    "roll": 359.9
+                },
                 "visible": true,
                 "flyTo": true
             },
@@ -211,25 +374,38 @@
                 "name": "兴趣点",
                 "url": "http://182.92.176.178:6080/arcgis/rest/services/YHDB/BaseData/MapServer/0",
                 "where": " 1=1 ",
-                "symbol": {
-                    "styleOptions": {
+                "symbol":
+                {
+                    "styleOptions":
+                    {
                         "image": "img/marker/mark3.png",
                         "scale": 0.6,
-                        "label": {
+                        "label":
+                        {
                             "field": "NAME",
                             "font_size": 15,
                             "color": "#ffffff",
                             "border": true,
                             "border_color": "#000000",
-                            "pixelOffset": [ 0, -30 ],
+                            "pixelOffset": [0, -30],
                             "distanceDisplayConditionFar": 20000
                         }
                     },
                     "styleField": "TYPE",
-                    "styleFieldOptions": {
-                        "收费站": { "image": "img/marker/mark1.png" },
-                        "装潢设计广告": { "image": "img/marker/mark2.png" },
-                        "企事业单位": { "image": "img/marker/mark4.png" }
+                    "styleFieldOptions":
+                    {
+                        "收费站":
+                        {
+                            "image": "img/marker/mark1.png"
+                        },
+                        "装潢设计广告":
+                        {
+                            "image": "img/marker/mark2.png"
+                        },
+                        "企事业单位":
+                        {
+                            "image": "img/marker/mark4.png"
+                        }
                     }
                 },
                 "popup": "名称：{NAME}<br />类型：{TYPE}<br />地址：{ADDRESS}",
@@ -240,17 +416,36 @@
                 "type": "arcgis_dynamic",
                 "name": "现状道路",
                 "url": "http://182.92.176.178:6080/arcgis/rest/services/YHDB/YHKG/MapServer/0",
-                "symbol": {
-                    "styleOptions": {
+                "symbol":
+                {
+                    "styleOptions":
+                    {
                         "color": "#3388ff",
                         "width": 2
                     },
                     "styleField": "TYPE",
-                    "styleFieldOptions": {
-                        "高速公路": { "color": "#8744c0", "width": 4 },
-                        "国道": { "color": "#f7ba2a", "width": 3 },
-                        "县道": { "color": "#20a0ff", "width": 2 },
-                        "乡村路": { "color": "#50bfff", "width": 1 }
+                    "styleFieldOptions":
+                    {
+                        "高速公路":
+                        {
+                            "color": "#8744c0",
+                            "width": 4
+                        },
+                        "国道":
+                        {
+                            "color": "#f7ba2a",
+                            "width": 3
+                        },
+                        "县道":
+                        {
+                            "color": "#20a0ff",
+                            "width": 2
+                        },
+                        "乡村路":
+                        {
+                            "color": "#50bfff",
+                            "width": 1
+                        }
                     }
                 },
                 "popup": "名称：{NAME}<br />类型：{TYPE}<br />长度：{LENGTH}米",
@@ -261,8 +456,10 @@
                 "type": "arcgis_dynamic",
                 "name": "规划区域",
                 "url": "http://182.92.176.178:6080/arcgis/rest/services/YHDB/YHKG/MapServer/2",
-                "symbol": {
-                    "styleOptions": {
+                "symbol":
+                {
+                    "styleOptions":
+                    {
                         "opacity": 0.5
                     }
                 },
@@ -281,8 +478,10 @@
                 "type": "geojson",
                 "name": "省界线",
                 "url": "data/sheng-line.json",
-                "symbol": {
-                    "styleOptions": {
+                "symbol":
+                {
+                    "styleOptions":
+                    {
                         "color": "#ffff00",
                         "width": 2,
                         "opacity": 0.8
@@ -296,8 +495,10 @@
                 "type": "geojson",
                 "name": "安徽各市",
                 "url": "data/anhui.json",
-                "symbol": {
-                    "styleOptions": {
+                "symbol":
+                {
+                    "styleOptions":
+                    {
                         "opacity": 0.8
                     }
                 },
@@ -314,11 +515,14 @@
             }
         ]
     },
-    "widget": {
+    "widget":
+    {
         "debugger": false,
         "version": "20180119",
-        "defaultOptions": {
-            "windowOptions": {
+        "defaultOptions":
+        {
+            "windowOptions":
+            {
                 "position": "r",
                 "maxmin": false,
                 "resize": true
@@ -327,123 +531,127 @@
             "disableOhter": true
         },
         "widgetsAtStart": [
-            {
-                "name": "左上角工具栏",
-                "uri": "widgets/toolBar/widget.js"
-            }
-        ],
+        {
+            "name": "左上角工具栏",
+            "uri": "widgets/toolBar/widget.js"
+        }],
         "widgets": [
             {
                 "name": "模板",
                 "type": "group",
                 "children": [
+                {
+                    "name": "iframe弹窗模板",
+                    "uri": "widgets/_example/widget.js",
+                    "windowOptions":
                     {
-                        "name": "iframe弹窗模板",
-                        "uri": "widgets/_example/widget.js",
-                        "windowOptions": {
-                            "width": 300,
-                            "height": 400,
-                            "position": {
-                                "top": 10,
-                                "right": 10
-                            },
-                            "maxmin": true,
-                            "resize": true
+                        "width": 300,
+                        "height": 400,
+                        "position":
+                        {
+                            "top": 10,
+                            "right": 10
                         },
-                        "openAtStart": false
+                        "maxmin": true,
+                        "resize": true
                     },
-                    {
-                        "name": "div弹窗模板",
-                        "uri": "widgets/_example_divwin/widget.js"
-                    },
-                    {
-                        "name": "append模板",
-                        "uri": "widgets/_example_append/widget.js"
-                    }
-                ]
+                    "openAtStart": false
+                },
+                {
+                    "name": "div弹窗模板",
+                    "uri": "widgets/_example_divwin/widget.js"
+                },
+                {
+                    "name": "append模板",
+                    "uri": "widgets/_example_append/widget.js"
+                }]
             },
 
             {
                 "name": "地图工具",
                 "type": "group",
                 "children": [
+                {
+                    "name": "图层管理",
+                    "uri": "widgets/manageLayers/widget.js",
+                    "style": "dark",
+                    "windowOptions":
                     {
-                        "name": "图层管理",
-                        "uri": "widgets/manageLayers/widget.js",
-                        "style": "dark",
-                        "windowOptions": {
-                            "skin": "layer-mars-dialog2",
-                            "position": {
-                                "top": 50,
-                                "bottom": 25,
-                                "left": 5
-                            }
-                        },
-                        "autoDisable": false,
-                        "disableOhter": false
-                    },
-                    {
-                        "name": "图上量算",
-                        "uri": "widgets/measure/widget.js"
-                    },
-                    {
-                        "name": "视角书签",
-                        "uri": "widgets/bookmark/widget.js"
-                    },
-                    {
-                        "name": "坐标定位",
-                        "uri": "widgets/centerXY/widget.js"
-                    },
-                    {
-                        "name": "标记",
-                        "uri": "widgets/addmarker/widget.js"
-                    },
-                    {
-                        "name": "地区导航",
-                        "uri": "widgets/navXZQH/widget.js"
-                    },
-                    {
-                        "name": "飞行漫游",
-                        "uri": "widgets/roaming/widget.js"
-                    },
-                    {
-                        "name": "地图对比",
-                        "uri": "widgets/mapSwipe/widget.js"
-                    },
-                    {
-                        "name": "粒子效果",
-                        "uri": "widgets/particalSystem/widget.js"
-                    },
-                    {
-                        "name": "街景",
-                        "uri": "widgets/streetscape/widget.js"
-                    },
-                    {
-                        "name": "标绘",
-                        "uri": "widgets/plot/widget.js",
-                        "windowOptions": {
-                            "position": {
-                                "top": 5,
-                                "bottom": 5,
-                                "right": 5
-                            }
-                        },
-                        "openAtStart": false
-                    },
-                    {
-                        "name": "打印",
-                        "uri": "widgets/print/widget.js",
-                        "autoDisable": false,
-                        "disableOhter": false
-                    },
-                    {
-                        "name": "分享当前地图位置",
-                        "uri": "widgets/shareUrl/widget.js",
-                        "windowOptions": {
-                            "position": "t"
+                        "skin": "layer-mars-dialog2",
+                        "position":
+                        {
+                            "top": 50,
+                            "bottom": 25,
+                            "left": 5
                         }
+                    },
+                    "autoDisable": false,
+                    "disableOhter": false
+                },
+                {
+                    "name": "图上量算",
+                    "uri": "widgets/measure/widget.js"
+                },
+                {
+                    "name": "视角书签",
+                    "uri": "widgets/bookmark/widget.js"
+                },
+                {
+                    "name": "坐标定位",
+                    "uri": "widgets/centerXY/widget.js"
+                },
+                {
+                    "name": "标记",
+                    "uri": "widgets/addmarker/widget.js"
+                },
+                {
+                    "name": "地区导航",
+                    "uri": "widgets/navXZQH/widget.js"
+                },
+                {
+                    "name": "飞行漫游",
+                    "uri": "widgets/roaming/widget.js"
+                },
+                {
+                    "name": "地图对比",
+                    "uri": "widgets/mapSwipe/widget.js"
+                },
+                {
+                    "name": "粒子效果",
+                    "uri": "widgets/particalSystem/widget.js"
+                },
+                {
+                    "name": "街景",
+                    "uri": "widgets/streetscape/widget.js"
+                },
+                {
+                    "name": "标绘",
+                    "uri": "widgets/plot/widget.js",
+                    "windowOptions":
+                    {
+                        "position":
+                        {
+                            "top": 5,
+                            "bottom": 5,
+                            "right": 5
+                        }
+                    },
+                    "openAtStart": false
+                },
+                {
+                    "name": "打印",
+                    "uri": "widgets/print/widget.js",
+                    "autoDisable": false,
+                    "disableOhter": false
+                },
+                {
+                    "name": "分享当前地图位置",
+                    "uri": "widgets/shareUrl/widget.js",
+                    "windowOptions":
+                    {
+                        "position": "t"
                     }
-                ]
+                }]
             },
             {
                 "name": "业务演示功能",
@@ -458,9 +666,11 @@
                     {
                         "name": "企业详情",
                         "uri": "widgetsTS/qyDetailsView/widget.js",
-                        "windowOptions": {
+                        "windowOptions":
+                        {
                             "skin": "layer-mars-dialog1",
-                            "position": {
+                            "position":
+                            {
                                 "top": 50,
                                 "bottom": 50,
                                 "left": 120,
@@ -472,9 +682,11 @@
                     {
                         "name": "企业查询",
                         "uri": "widgetsTS/qyListView/widget.js",
-                        "windowOptions": {
+                        "windowOptions":
+                        {
                             "skin": "layer-mars-dialog1",
-                            "position": {
+                            "position":
+                            {
                                 "top": 15,
                                 "bottom": 5,
                                 "right": 5
@@ -498,8 +710,5 @@
 
         ]
     }
-
-
-
 
 }
